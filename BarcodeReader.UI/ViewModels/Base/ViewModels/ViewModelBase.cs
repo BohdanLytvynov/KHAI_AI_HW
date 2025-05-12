@@ -54,23 +54,14 @@ namespace BarcodeReader.UI.ViewModels.Base.ViewModels
 
         public virtual string this[string columnName] => throw new NotImplementedException();
 
-        private bool[] m_ValidArray;
+        private bool[] m_ValidArray = null;
 
-        #endregion
+        #endregion       
 
-        #region Ctor
-
-        public ViewModelBase() : this(0)
-        {
-            
+        protected void InitValidArray(int count)
+        { 
+            m_ValidArray = new bool[count];
         }
-
-        public ViewModelBase(int numberOfFieldsToValidate)
-        {
-            m_ValidArray = new bool[numberOfFieldsToValidate];
-        }
-
-        #endregion
 
         protected bool ValidateFields(int start, int end)
         {
@@ -96,6 +87,11 @@ namespace BarcodeReader.UI.ViewModels.Base.ViewModels
         protected void SetValidArrayValue(int pos, bool value)
         {
             m_ValidArray[pos] = value;
+        }
+
+        protected int GetValidArrayLastIndex()
+        {
+            return m_ValidArray.Length - 1;        
         }
 
         protected int GetValidArrayCount()

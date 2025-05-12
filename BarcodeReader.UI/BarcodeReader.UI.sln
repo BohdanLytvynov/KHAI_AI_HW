@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarcodeReader.UI", "Barcode
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarcodeReader.BLL", "..\BarcodeReader.BLL\BarcodeReader.BLL\BarcodeReader.BLL.csproj", "{12A75E8D-E964-4D43-8A41-EB5BF2AA94C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarcodeReader.Services", "..\BarcodeReader.Services\BarcodeReader.Services\BarcodeReader.Services.csproj", "{DB581D21-3ED0-4360-B5A7-59A1381CFDD3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{12A75E8D-E964-4D43-8A41-EB5BF2AA94C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12A75E8D-E964-4D43-8A41-EB5BF2AA94C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12A75E8D-E964-4D43-8A41-EB5BF2AA94C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB581D21-3ED0-4360-B5A7-59A1381CFDD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB581D21-3ED0-4360-B5A7-59A1381CFDD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB581D21-3ED0-4360-B5A7-59A1381CFDD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB581D21-3ED0-4360-B5A7-59A1381CFDD3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

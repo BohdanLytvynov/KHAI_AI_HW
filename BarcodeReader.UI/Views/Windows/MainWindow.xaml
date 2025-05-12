@@ -4,9 +4,26 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BarcodeReader.UI"
+        xmlns:vm="clr-namespace:BarcodeReader.UI.ViewModels.Windows"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="{Binding Title}" Height="450" Width="800"
+        d:DataContext="{d:DesignInstance vm:MainWindowViewModel, IsDesignTimeCreatable=True}">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="7"/>
+            <RowDefinition Height="353*"/>
+            <RowDefinition Height="7"/>
+            <RowDefinition Height="35*"/>
+        </Grid.RowDefinitions>
+        <Menu>
+            <MenuItem Header="File" Style="{StaticResource MenuItemStyle}" >
 
+            </MenuItem>
+
+            <MenuItem Header="About" Style="{StaticResource MenuItemStyle}" >
+
+            </MenuItem>
+        </Menu>
     </Grid>
 </Window>

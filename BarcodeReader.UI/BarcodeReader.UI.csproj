@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BarcodeReader.BLL\BarcodeReader.BLL\BarcodeReader.BLL.csproj" />
+    <ProjectReference Include="..\BarcodeReader.Services\BarcodeReader.Services\BarcodeReader.Services.csproj" />
   </ItemGroup>
 
 </Project>
