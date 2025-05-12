@@ -12,8 +12,4 @@
     <ProjectReference Include="..\BarcodeReader.BLL\BarcodeReader.BLL\BarcodeReader.BLL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ViewModels\Base\Commands\" />
-  </ItemGroup>
-
 </Project>
