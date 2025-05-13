@@ -90,13 +90,13 @@ namespace BarcodeReader.UI.ViewModels.Windows
 
             var res = m_barcodeReader.ReadBarcodesFromImg(PathToImg, out ex);
 
-            if (ex != null)
+            if (ex == null)
             {
                 if (res.Count == 0)
-                    MessageBox.Show("No Barcodes were found on the input Image!", Title, MessageBoxButton.OK, MessageBoxImage.Information)
+                    MessageBox.Show("No Barcodes were found on the input Image!", Title, MessageBoxButton.OK, MessageBoxImage.Information);
                 else
-                { 
-                    if(Result.Count() > 0)
+                {
+                    if (Result.Count() > 0)
                         Result = string.Empty;
 
                     int length = res.Count;
@@ -104,8 +104,8 @@ namespace BarcodeReader.UI.ViewModels.Windows
                     StringBuilder sb = new StringBuilder();
 
                     for (int i = 0; i < length; i++)
-                    { 
-                        sb.Append($"Barcode {i+1}:\n");
+                    {
+                        sb.Append($"Barcode {i + 1}:\n");
                         sb.Append("\t");
                         sb.Append(res[i]);
                         sb.Append("\n\n");
@@ -149,7 +149,7 @@ namespace BarcodeReader.UI.ViewModels.Windows
             MessageBox.Show("This app made by Bohdan Lytvynov 125 group. " +
                 "\nIt can load image to the Image Viewer and then process the barcode inside it.\n" +
                 "How to use? \n" +
-                "1) Load image to the viewer. Press Open and choose your Image" +
+                "1) Load image to the viewer. Press Open and choose your Image\n" +
                 "2) Press Read button and you will get your result!", Title, MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
