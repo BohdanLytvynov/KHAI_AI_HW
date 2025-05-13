@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BarcodeReader.UI"
         xmlns:vm="clr-namespace:BarcodeReader.UI.ViewModels.Windows"
+        xmlns:imgViewer="clr-namespace:BarcodeReader.UI.CustomControls"
         mc:Ignorable="d"
         Title="{Binding Title}" Height="450" Width="800"
         d:DataContext="{d:DesignInstance vm:MainWindowViewModel, IsDesignTimeCreatable=True}">
@@ -17,13 +18,52 @@
             <RowDefinition Height="35*"/>
         </Grid.RowDefinitions>
         <Menu>
-            <MenuItem Header="File" Style="{StaticResource MenuItemStyle}" >
-
+            <MenuItem Header="File" Style="{StaticResource MenuItemStyle}" Command="{Binding OnAboutButtonPressed}" >
+               
             </MenuItem>
 
             <MenuItem Header="About" Style="{StaticResource MenuItemStyle}" >
 
             </MenuItem>
         </Menu>
+
+        <Rectangle Style="{StaticResource RectBorder}" Grid.Row="1"/>
+        <Rectangle Style="{StaticResource RectBorder}" Grid.Row="3"/>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="126*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="137*"/>
+            </Grid.ColumnDefinitions>
+
+            <GridSplitter Grid.Column="1" Style="{StaticResource VerticalGridSplitterStyle}"/>
+            <imgViewer:ImageViewer Grid.Column="0" Path="{Binding PathToImg, 
+                UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Margin="10" Text="{Binding Result, 
+                    UpdateSourceTrigger=PropertyChanged}"
+                           TextWrapping="WrapWithOverflow"/>
+                <Grid x:Name="Buttons" Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Read" Grid.Column="1" FontSize="20"
+                            Command="{Binding OnReadBarcodeButtonPressed}"/>
+                    <Button Content="Clear" Grid.Column="3" FontSize="20"
+                            Command="{Binding OnClearButtonPressed}"/>
+                </Grid>
+            </Grid>
+
+        </Grid>
     </Grid>
 </Window>

@@ -13,15 +13,29 @@
         <system:Double x:Key="MenuItemFontsize">14
         </system:Double>
 
+        <system:Double x:Key="GridSplitterWidth">5
+        </system:Double>
+
         <!--#endregion-->
 
         <!--#endregion-->
 
         <!--#region Colors -->
-        
+        <Color x:Key="RectBorderColor">black
+        </Color>
+
+        <Color x:Key="GridSplitterColor">black
+        </Color>
         <!--#endregion-->
 
         <!--#region Brushes -->
+
+        <SolidColorBrush x:Key="RectBorderBrush" Color="{StaticResource RectBorderColor}">
+        </SolidColorBrush>
+
+        <SolidColorBrush x:Key="GridSplitterBrush" Color="{StaticResource GridSplitterColor}">
+        </SolidColorBrush>
+
         <!--#endregion-->
 
         <!--#region Styles -->
@@ -33,6 +47,21 @@
                         Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, 
                     AncestorType=Menu}, Path=ActualHeight, 
                     UpdateSourceTrigger=PropertyChanged}"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="RectBorder" TargetType="Rectangle">
+            <Style.Setters>
+                <Setter Property="Fill" Value="{StaticResource RectBorderBrush}"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="VerticalGridSplitterStyle" TargetType="GridSplitter">
+            <Style.Setters>
+                <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                <Setter Property="VerticalAlignment" Value="Stretch"/>
+                <Setter Property="Width" Value="{StaticResource GridSplitterWidth}"/>
+                <Setter Property="Background" Value="{StaticResource GridSplitterBrush}"/>
             </Style.Setters>
         </Style>
 
