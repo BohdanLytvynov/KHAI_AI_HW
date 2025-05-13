@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="IronOcr" Version="2025.5.11" />
+  </ItemGroup>
+
 </Project>

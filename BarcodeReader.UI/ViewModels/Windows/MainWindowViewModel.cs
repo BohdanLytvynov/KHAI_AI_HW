@@ -1,4 +1,5 @@
-﻿using BarcodeReader.UI.ViewModels.Base.Commands;
+﻿using BarcodeReader.BLL.BarcodeReaders.Interfaces;
+using BarcodeReader.UI.ViewModels.Base.Commands;
 using BarcodeReader.UI.ViewModels.Base.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,8 @@ namespace BarcodeReader.UI.ViewModels.Windows
         private string m_path;
 
         private string m_result;
+
+        private IBarCodeReader m_barcodeReader;
         #endregion
 
         #region Properties
@@ -43,6 +46,11 @@ namespace BarcodeReader.UI.ViewModels.Windows
         #endregion
 
         #region Ctor
+        public MainWindowViewModel(IBarCodeReader barCodeReader) : this()
+        {
+            m_barcodeReader = barCodeReader;
+        }
+
         public MainWindowViewModel()
         {
             SetTitle("Barcode Reader V 1.0.0.0");
@@ -78,7 +86,42 @@ namespace BarcodeReader.UI.ViewModels.Windows
 
         private void OnReadButtonPressedExecute(object p)
         { 
-            
+            Exception ex = null;
+
+            var res = m_barcodeReader.ReadBarcodesFromImg(PathToImg, out ex);
+
+            if (ex != null)
+            {
+                if (res.Count == 0)
+                    MessageBox.Show("No Barcodes were found on the input Image!", Title, MessageBoxButton.OK, MessageBoxImage.Information)
+                else
+                { 
+                    if(Result.Count() > 0)
+                        Result = string.Empty;
+
+                    int length = res.Count;
+
+                    StringBuilder sb = new StringBuilder();
+
+                    for (int i = 0; i < length; i++)
+                    { 
+                        sb.Append($"Barcode {i+1}:\n");
+                        sb.Append("\t");
+                        sb.Append(res[i]);
+                        sb.Append("\n\n");
+                    }
+
+                    Result = sb.ToString();
+
+                    sb.Clear();
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show($"Exception occured during attempt of barcode reading!\n" +
+                    $"Message: {ex.Message}", Title, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         #endregion
