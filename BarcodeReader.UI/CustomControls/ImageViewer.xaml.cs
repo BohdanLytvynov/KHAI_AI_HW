@@ -18,7 +18,7 @@ namespace BarcodeReader.UI.CustomControls
         public string Path
         {
             get { return (string)GetValue(PathProperty); }
-            private set { SetValue(PathProperty, value); }
+            set { SetValue(PathProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for Path.  This enables animation, styling, binding, etc...
