@@ -1,4 +1,6 @@
-﻿using BarcodeReader.Services;
+﻿using BarcodeReader.BLL.BarcodeReaders.Interfaces;
+using BarcodeReader.BLL.BarcodeReaders.Realizations;
+using BarcodeReader.Services;
 using BarcodeReader.UI.ViewModels.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using System.Configuration;
@@ -20,6 +22,8 @@ namespace BarcodeReader.UI
             ServiceWrapper.Init();
             ServiceWrapper.ConfigureServices(c =>
             {
+                c.AddSingleton<IBarCodeReader, BarcodeReader.BLL.BarcodeReaders.Realizations.BarcodeReader>();
+
                 c.AddSingleton<MainWindowViewModel>();
 
                 c.AddTransient(config =>
